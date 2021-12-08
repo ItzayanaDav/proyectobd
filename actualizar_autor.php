@@ -1,3 +1,13 @@
+<?php 
+   require 'conexion_teatro.php';
+   if(isset($_GET['nombre_artistico'])){
+    $id=$_GET['nombre_artistico']; 
+    $sql="SELECT *  FROM autor  WHERE nombre_artistico='$id'";
+    $query=mysqli_query($db,$sql);
+    $row=mysqli_fetch_array($query);
+   }
+  
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -6,7 +16,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Búsqueda Artistas - Teatro Marry Place</title>
+    <title>Actualizar tablas - Teatro Marry Place</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -43,14 +53,14 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tabla Artista</a>
                         <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="agregar_artistas_form.php">Agregar nuevo artista</a></li>
+                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
                             <li><i class="fa fa-table"></i><a href="busquedaartista.php">Búsqueda de artistas</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tabla Autor</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="agregar_autor_form.php">Agregar nuevo autor</a></li>
+                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
                             <li><i class="fa fa-table"></i><a href="busquedaautor.php">Búsqueda de autores</a></li>
                         </ul>
                     </li>
@@ -90,9 +100,16 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>JOIN</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tabla Función</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="index1.php">Join</a></li>
+                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="busquedafuncion.html">Búsqueda de funciones</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
                             <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
                         </ul>
                     </li>
@@ -151,7 +168,7 @@
                     <div class="col-sm-4">
                         <div class="page-header float-left">
                             <div class="page-title">
-                                <h1>Menú Principal</h1>
+                                <h1>ACTUALIZAR</h1>
                             </div>
                         </div>
                     </div>
@@ -159,9 +176,9 @@
                         <div class="page-header float-right">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="administrador.html">Menú Principal</a></li>
-                                    <li><a href="#">Tabla Artista</a></li>
-                                    <li class="active">Búsqueda De Artistas</li>
+                                    <li><a href="#">ACTUALIZAR</a></li>
+                                    <li><a href="#">Table</a></li>
+                                    <li class="active">Data table</li>
                                 </ol>
                             </div>
                         </div>
@@ -177,75 +194,71 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Búsqueda de artistas</strong>
+                                <strong class="card-title">Actualizar tablas</strong>
                             </div>
-                            <form rol="form" method="POST">
-                            <div class="form-group">
-                            &nbsp;
-                            <input &nbsp; type="text" class="form-control" id="nombre_artistico" placeholder="Ingrese el nombre artístico del actor que desee consultar" name="nombre_artistico">
-                            </div>
-                            <button type="submit" class="btn btn-default">Consultar</button>
-                        </form>
-                        &nbsp;
-                        <?php
-                        if($_POST){
-                        require('credenciales.php');
-                        $con=Conectar();
-                        $id=$_POST['nombre_artistico'];
-                        $SQL = 'SELECT nombre_artistico, nombre, apellidos, edad, cache, descripcion, papel_afin, cantidad_interpretaciones FROM artista WHERE nombre_artistico =:Nombre_artistico';
-                        $stmt = $con->prepare($SQL);
-                        $result = $stmt->execute(array(':Nombre_artistico'=>$id));
-                        $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
-
-                        if(count($rows)){
-                            //echo "Existe el registro del artista";
-                            foreach($rows AS $row){
-                            ?>
-                            <br>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Nombre_artistico: <?php print($id)?></div>
-                                <br>
-                                <table class="table">
-                                    <th>Nombre</th><th>Apellidos</th><th>Edad</th><th>Cache</th><th>Descripción</th><th>Papel affín</th><th>Cantidad de interpretaciones</th><th>Procesos</th>
-                                    <tr>
-                                    <td><?php print("".$row->nombre."<br>")?></td>
-                                    <td><?php print("".$row->apellidos."<br>")?></td>
-                                    <td><?php print("".$row->edad."<br>")?></td>
-                                    <td><?php print("".$row->cache."<br>")?></td>
-                                    <td><?php print("".$row->descripcion."<br>")?></td>
-                                    <td><?php print("".$row->papel_afin."<br>")?></td>
-                                    <td><?php print("".$row->cantidad_interpretaciones."<br>")?></td>
-                                    <td><a href="actualizar_artista.php?nombre_artistico=<?php print($row->nombre_artistico)?>">Actualizar</a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <?php
-                            }
-                        }else{
-                            echo "El dato del artista no existe en la base de datos";
-                        }
-                        }
-                        ?>
-                        </div>
-                    </div>
-
+                            <div class="card-body">
+                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                   
 
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
+    <form class="login100-form validate-form" ACTION=proceso_actualizar_autor.php METHOD=POST>
+					<span class="login100-form-title p-b-43">
+						TABLA OBRA
+					</span>
+					
+					
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="nombre_artistico" value="<?php echo $row ['nombre_artistico'] ?>" readonly>
+						<span class="focus-input100"></span>
+						<span class="label-input100">Nombre artistico</span>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" name="nombre" value="<?php echo $row ['nombre'] ?>" readonly>
+						<span class="focus-input100"></span>
+						<span class="label-input100">Nombre</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="apellidos" value="<?php echo $row ['apellidos'] ?>">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Apellidos</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="edad" value="<?php echo $row ['edad'] ?>">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Edad</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="precio_libreto" value="<?php echo $row ['precio_libreto'] ?>">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Precio libreto</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="precio_representacion" value="<?php echo $row ['precio_representacion'] ?>">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Precio representacion</span>
+					</div>
+
+			
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							ACTUALIZAR
+						</button>
+					</div>
+				</form> 
+
+    
 
 
-        <div class="clearfix"></div>
 
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-6">
-                        Copyright &copy; Teatro Marry Place 2021
-                    </div>
-                </div>
-            </div>
-        </footer>
 
     </div><!-- /#right-panel -->
 

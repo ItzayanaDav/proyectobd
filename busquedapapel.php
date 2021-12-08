@@ -210,7 +210,7 @@
                                     <td><?php print("".$row->obra."<br>")?></td>
                                     <td><?php print("".$row->duracion."<br>")?></td>
                                     <td><?php print("".$row->atrezo."<br>")?></td>
-                                    <td><a href="busqueda_papel.php?nombre_papel=<?php print($row->nombre_papel)?>">Actualizar</a></td>
+                                    <td><a href="actualizar_papel.php?nombre_papel=<?php print($row->nombre_papel)?>">Actualizar</a></td>
                                     </tr>
                                 </table>
                             </div>

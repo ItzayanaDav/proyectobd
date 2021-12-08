@@ -205,7 +205,7 @@
                                 <div class="panel-heading">Nombre_teatro: <?php print($id)?></div>
                                 <br>
                                 <table class="table">
-                                    <th>Calle y número</th><th>Localidad</th><th>Provincia</th><th>Teléfono</th><th>Categoría (Tamaño)</th><th>Aforo</th>
+                                    <th>Calle y número</th><th>Localidad</th><th>Provincia</th><th>Teléfono</th><th>Categoría (Tamaño)</th><th>Aforo</th><th>Procesos</th>
                                     <tr>
                                     <td><?php print("".$row->calle_numero."<br>")?></td>
                                     <td><?php print("".$row->localidad."<br>")?></td>
@@ -213,6 +213,7 @@
                                     <td><?php print("".$row->telefono."<br>")?></td>
                                     <td><?php print("".$row->categoria."<br>")?></td>
                                     <td><?php print("".$row->aforo."<br>")?></td>
+                                    <td><a href="actualizar_teatro.php?nombre_teatro=<?php print($row->nombre_teatro)?>">Actualizar</a></td>
                                     </tr>
                                 </table>
                             </div>

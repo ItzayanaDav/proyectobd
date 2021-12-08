@@ -205,13 +205,14 @@
                                 <div class="panel-heading">Id_funcion: <?php print($id)?></div>
                                 <br>
                                 <table class="table">
-                                    <th>Fecha</th><th>Hora</th><th>Teatro</th><th>Obra</th><th>Id de la afinidad</th>
+                                    <th>Fecha</th><th>Hora</th><th>Teatro</th><th>Obra</th><th>Id de la afinidad</th><th>Operaciones</th>
                                     <tr>
                                     <td><?php print("".$row->fecha."<br>")?></td>
                                     <td><?php print("".$row->hora."<br>")?></td>
                                     <td><?php print("".$row->teatro."<br>")?></td>
                                     <td><?php print("".$row->obra."<br>")?></td>
                                     <td><?php print("".$row->id_afinidad."<br>")?></td>
+                                    <td><a href="actualizar_funcion.php?id_funcion=<?php print($row->id_funcion)?>">Actualizar</a></td>
                                     </tr>
                                 </table>
                             </div>

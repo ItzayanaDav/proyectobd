@@ -1,8 +1,8 @@
 <?php 
    require 'conexion_teatro.php';
-   if(isset($_GET['titulo_obra'])){
-    $id=$_GET['titulo_obra']; 
-    $sql="SELECT *  FROM obra  WHERE titulo_obra='$id'";
+   if(isset($_GET['nombre_papel'])){
+    $id=$_GET['nombre_papel']; 
+    $sql="SELECT *  FROM papel  WHERE nombre_papel='$id'";
     $query=mysqli_query($db,$sql);
     $row=mysqli_fetch_array($query);
    }
@@ -229,7 +229,7 @@
 					</div>
 
                     <div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="obra" value="<?php echo $row ['atrezo'] ?>">
+						<input class="input100" type="text" name="atrezo" value="<?php echo $row ['atrezo'] ?>">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Atrezo</span>
 					</div>

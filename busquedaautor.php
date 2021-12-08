@@ -205,13 +205,14 @@
                                 <div class="panel-heading">Nombre_artistico: <?php print($id)?></div>
                                 <br>
                                 <table class="table">
-                                    <th>Nombre</th><th>Apellidos</th><th>Edad</th><th>Precio por libreto</th><th>Precio por representación</th>
+                                    <th>Nombre</th><th>Apellidos</th><th>Edad</th><th>Precio por libreto</th><th>Precio por representación</th><th>Operaciones</th>
                                     <tr>
                                     <td><?php print("".$row->nombre."<br>")?></td>
                                     <td><?php print("".$row->apellidos."<br>")?></td>
                                     <td><?php print("".$row->edad."<br>")?></td>
                                     <td><?php print("".$row->precio_libreto."<br>")?></td>
                                     <td><?php print("".$row->precio_representacion."<br>")?></td>
+                                    <td><a href="actualizar_autor.php?nombre_artistico=<?php print($row->nombre_artistico)?>">Actualizar</a></td>
                                     </tr>
                                 </table>
                             </div>

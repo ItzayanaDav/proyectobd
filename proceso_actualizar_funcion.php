@@ -7,12 +7,16 @@
 <BODY>
     <?php
    require 'conexion_teatro.php';
-   $nombre_papel = $_POST["nombre_papel"];
+   $id_funcion = $_POST["id_funcion"];
+    $fecha = $_POST["fecha"];
+    $hora = $_POST["hora"];
+    $teatro = $_POST["teatro"];
     $obra = $_POST["obra"];
-    $duracion = $_POST["duracion"];
-    $atrezo = $_POST["atrezo"];
+    $id_afinidad = $_POST["id_afinidad"];
+
+
     //creamos la sentencia y la ejecutamos
-    $consulta = "update papel set obra = '$obra', duracion = '$duracion', atrezo = $atrezo WHERE nombre_papel = '$nombre_papel'";
+    $consulta = "update funcion set fecha = '$fecha', hora = '$hora', teatro = '$teatro', obra = '$obra', id_afinidad = '$id_afinidad WHERE id_funcion = '$id_funcion'";
     $query=mysqli_query($db,$consulta);
     ?>
 

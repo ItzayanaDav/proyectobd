@@ -1,8 +1,8 @@
 <?php 
    require 'conexion_teatro.php';
-   if(isset($_GET['titulo_obra'])){
-    $id=$_GET['titulo_obra']; 
-    $sql="SELECT *  FROM obra  WHERE titulo_obra='$id'";
+   if(isset($_GET['nombre_artistico'])){
+    $id=$_GET['nombre_artistico']; 
+    $sql="SELECT *  FROM artista  WHERE nombre_artistico='$id'";
     $query=mysqli_query($db,$sql);
     $row=mysqli_fetch_array($query);
    }
@@ -194,7 +194,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Actualizar tabla</strong>
+                                <strong class="card-title">Actualizar tablas</strong>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -203,37 +203,54 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
-    <form class="login100-form validate-form" ACTION=proceso_actualizar_papel.php METHOD=POST>
+    <form class="login100-form validate-form" ACTION=proceso_actualizar_artista.php METHOD=POST>
 					<span class="login100-form-title p-b-43">
-						TABLA PAPEL
+						TABLA OBRA
 					</span>
 					
 					
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="nombre_papel" value="<?php echo $row ['nombre_papel'] ?>" readonly>
+						<input class="input100" type="text" name="nombre_artistico" value="<?php echo $row ['nombre_artistico'] ?>" readonly>
 						<span class="focus-input100"></span>
-						<span class="label-input100">Nombre papel</span>
+						<span class="label-input100">Nombre artistico</span>
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="text" name="obra" value="<?php echo $row ['obra'] ?>" readonly>
+						<input class="input100" type="text" name="nombre" value="<?php echo $row ['nombre'] ?>">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Obra</span>
+						<span class="label-input100">Nombre</span>
 					</div>
 
                     <div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="duracion" value="<?php echo $row ['duracion'] ?>">
+						<input class="input100" type="text" name="apellidos" value="<?php echo $row ['apellidos'] ?>">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Duracion</span>
+						<span class="label-input100">Apellidos</span>
 					</div>
 
                     <div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="obra" value="<?php echo $row ['atrezo'] ?>">
+						<input class="input100" type="text" name="edad" value="<?php echo $row ['edad'] ?>">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Atrezo</span>
+						<span class="label-input100">Edad</span>
 					</div>
 
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="cache" value="<?php echo $row ['cache'] ?>">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Descripcion</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="papel_afin" value="<?php echo $row ['papel_afin'] ?>">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Papel afin</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="cantidad_interpretaciones" value="<?php echo $row ['cantidad_interpretaciones'] ?>">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Cantidad interpretaciones</span>
+					</div>
 			
 
 					<div class="container-login100-form-btn">
