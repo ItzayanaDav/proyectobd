@@ -15,7 +15,7 @@
     $precio_representacion = $_POST["precio_representacion"];
     
     //creamos la sentencia y la ejecutamos
-    $consulta = "update autor set nombre = '$nombre', apellidos = '$apellidos', edad = $edad, precio_libreto = $precio_libreto, precio_interpretacion = $precio_interpretacion WHERE nombre_artistico = '$nombre_artistico'";
+    $consulta = "update autor set nombre = '$nombre', apellidos = '$apellidos', edad = $edad, precio_libreto = $precio_libreto, precio_representacion = $precio_representacion WHERE nombre_artistico = '$nombre_artistico'";
     $query=mysqli_query($db,$consulta);
     ?>
 

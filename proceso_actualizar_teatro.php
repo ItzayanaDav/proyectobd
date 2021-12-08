@@ -15,7 +15,7 @@
     $categoria = $_POST["categoria"];
     $aforo = $_POST["aforo"];
     //creamos la sentencia y la ejecutamos
-    $consulta = "update teatro set calle_numero = '$calle_numero', localidad = '$localidad', provincia = '$provincia', telefono = '$telefono', categoria = '$categoria', aforo = '$aforo' $ WHERE nombre_teatro = '$nombre_teatro'";
+    $consulta = "update teatro set calle_numero = '$calle_numero', localidad = '$localidad', provincia = '$provincia', telefono = '$telefono', categoria = '$categoria', aforo = '$aforo' WHERE nombre_teatro = '$nombre_teatro'";
     $query=mysqli_query($db,$consulta);
     ?>
 

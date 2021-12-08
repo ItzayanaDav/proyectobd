@@ -8,11 +8,15 @@
     <?php
    require 'conexion_teatro.php';
    $nombre_papel = $_POST["nombre_papel"];
+   echo $nombre_papel;
     $obra = $_POST["obra"];
+    echo $obra;
     $duracion = $_POST["duracion"];
+    echo $duracion;
     $atrezo = $_POST["atrezo"];
+    echo $atrezo;
     //creamos la sentencia y la ejecutamos
-    $consulta = "update papel set obra = '$obra', duracion = '$duracion', atrezo = $atrezo WHERE nombre_papel = '$nombre_papel'";
+    $consulta = "update papel set obra = '$obra', duracion = '$duracion', atrezo = '$atrezo' WHERE nombre_papel = '$nombre_papel'";
     $query=mysqli_query($db,$consulta);
     ?>
 

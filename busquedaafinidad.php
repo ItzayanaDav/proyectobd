@@ -206,12 +206,14 @@
                                 <div class="panel-heading">Id_afinidad: <?php print($id)?></div>
                                 <br>
                                 <table class="table">
-                                    <th>Obra</th><th>Papel</th><th>Artista</th><th>Interpretaciones</th>
+                                    <th>Obra</th><th>Papel</th><th>Artista</th><th>Interpretaciones</th><th>Operaciones</th>
                                     <tr>
                                     <td><?php print("".$row->obra."<br>")?></td>
                                     <td><?php print("".$row->papel."<br>")?></td>
                                     <td><?php print("".$row->artista."<br>")?></td>
                                     <td><?php print("".$row->interpretaciones."<br>")?></td>
+                                    <td><a href="actualizar_afinidad.php?id_afinidad=<?php print($row->id_afinidad)?>">Actualizar</a></td>
+
                                     </tr>
                                 </table>
                             </div>
